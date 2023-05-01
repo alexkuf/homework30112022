@@ -4,7 +4,7 @@ export class SaveData {
         this.saveMyData = saveMyData;
         this.loadMyData = loadMyData;
     }
-    saveToLocal() {
+    saveTo() {
         let div = document.querySelectorAll('.worckBox');
         if (div.length > 0) {
             let toStorage = [];
@@ -13,13 +13,13 @@ export class SaveData {
                 toStorage.push(values[i].innerHTML);
             }
             let req = new XMLHttpRequest();
-            req.open("PUT", "https://api.jsonbin.io/v3/b/638a482b003d6444ce6122b7", false);
+            req.open("PUT", "https://api.jsonbin.io/v3/b/xxxxxxxxxxxxxxxxxx", false);
             req.setRequestHeader("Content-Type", "application/json");
-            req.setRequestHeader("X-Master-Key", "$2b$10$GwPplFiGUDRi2WtUWgZU6.RYh6Y2SP7bSHvc/CaWRn2G6Voh8KTOq");
+            req.setRequestHeader("X-Master-Key", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
             req.send(JSON.stringify(toStorage));
         }
     }
-    loadFromLocal() {
+    loadFrom() {
         fetch('https://api.jsonbin.io/v3/b/xxxxxxxxxxxxxxxxxxxx', {
             method: 'GET',
             headers: {
