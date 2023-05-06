@@ -4,7 +4,7 @@ export class SaveData {
         this.saveMyData = saveMyData;
         this.loadMyData = loadMyData;
     }
-    saveTo() {
+    saveToLocal() {
         let div = document.querySelectorAll('.worckBox');
         if (div.length > 0) {
             let toStorage = [];
@@ -13,18 +13,18 @@ export class SaveData {
                 toStorage.push(values[i].innerHTML);
             }
             let req = new XMLHttpRequest();
-            req.open("PUT", "https://api.jsonbin.io/v3/b/xxxxxxxxxxxxxxxxxx", false);
+            req.open("PUT", "https://api.jsonbin.io/v3/b/638a482b003d6444ce6122b7", false);
             req.setRequestHeader("Content-Type", "application/json");
-            req.setRequestHeader("X-Master-Key", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            req.setRequestHeader("X-Master-Key", "$2b$10$GwPplFiGUDRi2WtUWgZU6.RYh6Y2SP7bSHvc/CaWRn2G6Voh8KTOq");
             req.send(JSON.stringify(toStorage));
         }
     }
-    loadFrom() {
-        fetch('https://api.jsonbin.io/v3/b/xxxxxxxxxxxxxxxxxxxx', {
+    loadFromLocal() {
+        fetch('https://api.jsonbin.io/v3/b/638a482b003d6444ce6122b7', {
             method: 'GET',
             headers: {
                 "Content-Type": 'application/json',
-                "X-Master-Key": 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+                "X-Master-Key": '$2b$10$GwPplFiGUDRi2WtUWgZU6.RYh6Y2SP7bSHvc/CaWRn2G6Voh8KTOq'
             }
         }).then((response) => response.json())
             .then(document.getElementById("nameProject").innerText = "Please wait")
